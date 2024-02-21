@@ -1,0 +1,5 @@
+/tests/
+/build/
+/dist/
+/.vscode/
+/__pycache__/
