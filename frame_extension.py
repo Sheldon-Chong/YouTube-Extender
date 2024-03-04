@@ -21,6 +21,7 @@ def remove_words(input_string, words_to_remove):
 	return(input_string)
 
 def get_frame(i):
+	global FRAME_EXTEND_LENGTH
 	return (i * FRAME_EXTEND_LENGTH + 1)
 
 def generate_frame_markers(max_frame, fps):
@@ -58,7 +59,8 @@ def check_if_extended(layers):
 		if user_input not in YES:
 			return(True)
 
-def extend(file_path):    
+def extend(file_path):
+	global FRAME_EXTEND_LENGTH
 	with open(file_path, 'r') as file:
 		
 		#read file and extract column
@@ -90,16 +92,16 @@ def extend(file_path):
 	with open(file_path, 'w') as file:
 		file.write(ET.tostring(root).decode())
 
-def srt2arr(filename, destination):
+def srt2arr(filename, destination, word_to_remove):
 	subs = pysrt.open(filename)
 	buffer = PROMPT_MSG
 
 	rows = []
-	i = 0
+	i = 1
 	for sub in subs:
 		if len(sub.text) > 1:
-			row = [remove_words(sub.text, WORDS_TO_REMOVE).replace('///', '\n'), sub.start, sub.end]
-			buffer += f"({i}) {row[0]}\n"
+			row = [sub.text, sub.start, sub.end]
+			buffer += f"<{i}> {row[0]}\n"
 			rows.append(row)
 			i += 1
 	
@@ -151,6 +153,45 @@ def generate_srt_guide(amount, fps):
 	subs2.save('transition guides.srt', encoding='utf-8')
 	print(f"{Fore.GREEN}*transition guides.srt generated{Style.RESET_ALL}")
 
+def text_edit(buffer_name, buffer_contents, mode):
+	# create a new buffer file
+	if(mode == "edit"):
+		pass
+	else:
+		with open(buffer_name, 'w') as file:
+			file.write(buffer_contents)
+
+	# open the editor
+	subprocess.run(['notepad.exe', buffer_name], check=True)
+	user_input = ""
+
+	while (user_input in ["e", "r", ""]):
+		user_input = input("finished? y-yes c-cancel r-redo e-edit: ")
+		if (user_input == "c"):
+			return(None)
+		elif (user_input == "e"):
+			open(buffer_name, 'r')
+			subprocess.run(['notepad.exe', buffer_name], check=True)
+		elif (user_input == "r"):
+			with open(buffer_name, 'w') as file:
+				file.write(buffer_contents)
+			subprocess.run(['notepad.exe', buffer_name], check=True)
+	with open(buffer_name, 'r', encoding='utf-8') as file:
+		file_contents = file.readlines()
+	
+	# remove ending newlines if any
+	modified_list = list(map(lambda s: s.rstrip('\n') if s.endswith('\n') else s, file_contents))
+
+	if not BUFFER_MSG_INSERT_TXT in  modified_list or BUFFER_MSG_REMOVE_TXT not in modified_list:
+		print_error("Does not contain required titles")
+		return(None)
+
+	# extract the part of the list that matters
+	script = modified_list[modified_list.index(BUFFER_MSG_INSERT_TXT) + 1:modified_list.index(BUFFER_MSG_REMOVE_TXT)]
+
+	words_to_remove = modified_list[modified_list.index(BUFFER_MSG_REMOVE_TXT)+1:]
+	return(script, words_to_remove)
+
 def shell():
 	
 	print(TITLE_MSG)
@@ -159,17 +200,7 @@ def shell():
 		ignore_case=True)
 	history = FileHistory('.command_history')  # Save command history to a file
 	
-	selected_file = select_file([("acceptable files", "*.srt;")], "select SRT")
-	print(os.getcwd())
-	buffer_file = "buffer.txt"
-	with open(buffer_file, 'w') as file:
-		pass
-	subprocess.run(['notepad.exe', buffer_file], check=True)
-	user_input = input("finished?: ")
-	with open(buffer_file, 'r') as file:
-		file_contents = file.readlines()
-	print(file_contents)
-	os.remove(buffer_file)
+	global FRAME_EXTEND_LENGTH
 
 	while(True):
 		try:
@@ -181,11 +212,16 @@ def shell():
 			elif tokens[0] == "srt": generate_srt_guide(300, 12)
 			elif tokens[0] == "extend":
 				filename = select_file([("acceptable files", "*.srt;*.csv;*.xstage;*.txt")], "select file")
+				if len(filename) < 0:
+					print_error(f"No file selected")
 				if not ".xstage" in filename:
 					print_error(f"Invalid file: {filename}")
 					continue
 				try:
+					if(len(tokens) > 1):
+						FRAME_EXTEND_LENGTH = int(tokens[1])
 					extend(filename)
+					print(f"Sucess: {filename} extended by {FRAME_EXTEND_LENGTH} frames")
 				except UnicodeDecodeError as e:
 					print_error("file cannot be read properly. Does this xtage file contain incorrect syntax?")
 			elif tokens[0] == 'stats':
@@ -211,50 +247,67 @@ def shell():
 				print(filepath)
 				csv2srt(selected_file, filepath)
 			elif tokens[0] == 'translate':
+				flag = "default"
+
+				# prompt user to select a srt file
 				selected_file = select_file([("acceptable files", "*.srt;")], "select SRT")
-
-				# read from input
-				csv_rows = srt2arr(selected_file, os.path.dirname(selected_file))
-				input_rows = []
-				i = 0
-				print("Type input here:")
-				try:
-					while True:
-						user_input = input(f"{i + 1}. >> ")
-						if len(user_input) < 1:
-							break
-						input_rows.append(user_input)
-						if(user_input[0] == '('):
-							i += 1
-				except KeyboardInterrupt:
-					print()
+			
+				if(len(selected_file) < 1) or not selected_file:
+					print_error("Error: No file selected. Operation cancel")
 					continue
+				# convert the selected srt file into a 2D array
+				csv_rows = srt2arr(selected_file, os.path.dirname(selected_file), [])
+
+				#repeat this step as many times until need to do something
+				while(True):
+					
+					# read from user input
+					txt_rows, word_to_remove = text_edit("buffer", BUFFER_MSG, flag)
+					if not txt_rows:
+						flag = "cancelled"
+						break
+					
+					# convert each item from "<100> test" into "||| test"
+					for i in range(0, len(txt_rows)):
+						if('>' in txt_rows[i]):
+							txt_rows[i] = '|||' + txt_rows[i][txt_rows[i].find('>') + 1:]
+					
+					# join all newlines
+					input_string = '\n'.join(txt_rows)
+
+					# split by "|||" character, and remove the first item which is guarantee
+					txt_rows = [x[1:] for x in input_string.split('|||')[1:]]
 				
-				input_string = '\n'.join(input_rows)
-				pattern = r'(\([^)]+\))'
-
-				print(input_rows)
-
-				result = re.split(pattern, input_string)
-
-				result = [x.replace('///','\n') for x in result if (x and x[0] != '(')]
-
-				# process input
-				input_rows = result
-				if len(input_rows) != len(csv_rows):
-					print_warning("The input you provided does not contain the same amount of lines as the provided srt file\n")
-					print(f"{len(input_rows)}/{len(csv_rows)}")
+					# process input
+					if len(txt_rows) != len(csv_rows):
+						print_warning("The input you provided does not contain the same amount of lines as the provided srt file\n")
+						print(f"{len(txt_rows)}/{len(csv_rows)}")
+						user_input = input("r-redo, e-edit, c-cancel: ")
+						if (user_input == 'r'):
+							flag = "default"
+							selected_file = select_file([("acceptable files", "*.srt;")], "select SRT")
+							csv_rows = srt2arr(selected_file, os.path.dirname(selected_file), word_to_remove)
+							continue
+						elif (user_input == 'e'):
+							flag = "edit"
+							continue
+						elif (user_input == 'c'):
+							flag = "cancel"
+							break
+					else:
+						break
+				if (flag == "cancel"):
 					continue
-				for row_num in range(0, len(input_rows)):
-					input_rows[row_num] = input_rows[row_num][:-1]
-					if '\n' in input_rows[row_num]:
-						seperated_input_rows = input_rows[row_num].split('\n')
+				for row_num in range(0, len(txt_rows)):
+					txt_rows[row_num] = txt_rows[row_num][:-1]
+					if '\n' in txt_rows[row_num]:
+						seperated_input_rows = txt_rows[row_num].split('\n')
 						seperated_csv_rows = [row[0] for row in csv_rows][row_num].split('\n')
 						for item in range(0, len(seperated_input_rows)):
 							print(f"{str(row_num) + '.' if item == 0 else ''} {seperated_input_rows[item]} {seperated_csv_rows[item]}")
 					else:
-						print(f"{Fore.GREEN}{row_num + 1}. {input_rows[row_num]} {Fore.BLUE}{[row[0] for row in csv_rows][row_num]}")
-					csv_rows[row_num].append(input_rows[row_num])
+						print(f"{Fore.GREEN}{row_num + 1}. {txt_rows[row_num]} {Fore.BLUE}{[row[0] for row in csv_rows][row_num]}")
+					csv_rows[row_num].append(txt_rows[row_num])
 
 				#save file
 				directory = os.path.dirname(selected_file)

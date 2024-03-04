@@ -1,8 +1,22 @@
 from header import *
 
+WORDS_TO_REMOVE = """<b>
+</b>"""
+
+BUFFER_MSG_INSERT_TXT = "<INSERT TEXT HERE>"
+BUFFER_MSG_REMOVE_TXT = "<REMOVE THE FOLLOWING WORDS>"
+BUFFER_MSG_SAVE_NAME = "<FILENAME>"
+
+BUFFER_MSG = f"""{BUFFER_MSG_INSERT_TXT}
+
+{BUFFER_MSG_REMOVE_TXT}
+{WORDS_TO_REMOVE}
+{BUFFER_MSG_SAVE_NAME}
+"""
+
 YES = ['yes', "Yes", "YES", "y", "Y"]
-FRAME_EXTEND_LENGTH = 32
-WORDS_TO_REMOVE = ["<b>", "</b>"]
+FRAME_EXTEND_LENGTH = 34
+
 PROMPT_MSG = """
 These are the instructions for this prompt.
 1. Translate all the words below into chinese.
