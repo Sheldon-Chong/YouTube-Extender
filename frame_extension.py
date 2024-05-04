@@ -94,14 +94,14 @@ def extend(file_path):
 
 def srt2arr(filename, destination, word_to_remove):
 	subs = pysrt.open(filename)
-	buffer = PROMPT_MSG
+	buffer = PROMPT_MSG.replace("{}", "chinese")
 
 	rows = []
 	i = 1
 	for sub in subs:
 		if len(sub.text) > 1:
-			row = [sub.text, sub.start, sub.end]
-			buffer += f"<{i}> {row[0]}\n"
+			row = [sub.start, sub.end, remove_words(sub.text, WORDS_TO_REMOVE)]
+			buffer += f"<{i}> {row[2]}\n"
 			rows.append(row)
 			i += 1
 	
@@ -117,21 +117,24 @@ def srt2arr(filename, destination, word_to_remove):
 
 	return(rows)
 
-def csv2srt(csv_filename, save_directory):
+def csv2srt(csv_file_path, save_directory):
 	subs = pysrt.SubRipFile()
-	with open(csv_filename, 'r', newline='', encoding='utf-8') as file:
+	with open(csv_file_path, 'r', newline='', encoding='utf-8') as file:
 		reader = csv.reader(file)
 		next(reader)
 		for index, row in enumerate(reader, start=1):
-			start = pysrt.srttime.SubRipTime.from_string(row[1])
-			end = pysrt.srttime.SubRipTime.from_string(row[2])
+			print(row[0])
+			print(row[1])
+			start = pysrt.srttime.SubRipTime.from_string(row[0])
+			end = pysrt.srttime.SubRipTime.from_string(row[1])
 			text = row[3]
 			item = pysrt.SubRipItem(index, start=start, end=end, text=text)
 			subs.append(item)
-	print(save_directory)
-	subs.save(f"{save_directory}/translated.srt", encoding='utf-8')
+	save_name = os.path.splitext(os.path.basename(csv_file_path) + '()')[0] + '.srt'
+	print(f"{Fore.GREEN}{save_name}{Fore.RESET} saved to {Fore.BLUE}{save_directory}{Fore.RESET}")
+	subs.save(f"{save_directory}/{save_name}", encoding='utf-8')
 
-def generate_srt_guide(amount, fps):
+def generate_srt_guide(amount, fps, frame_extension_length):
 	timestamp_array = generate_frame_markers(amount, fps)
 	subs = pysrt.SubRipFile()
 	i = 1
@@ -140,8 +143,8 @@ def generate_srt_guide(amount, fps):
 		end_time = start_time + 100
 		subs.append(pysrt.SubRipItem(i, start=start_time, end=end_time,text=f"s: {str(i)}"))
 		i += 1
-	subs.save('my_subtitles.srt', encoding='utf-8')
-	print(f"{Fore.GREEN}*my_subtitles.srt generated{Style.RESET_ALL}")
+	subs.save(f'{frame_extension_length}-frame_transition_guides.srt', encoding='utf-8')
+	print(f"{Fore.GREEN}*{frame_extension_length}-frame_transition_guides.srt generated in {os.getcwd()}{Style.RESET_ALL}")
 
 	subs2 = pysrt.SubRipFile()
 	i = 1
@@ -150,8 +153,8 @@ def generate_srt_guide(amount, fps):
 		end_time = start_time + 2000
 		subs2.append(pysrt.SubRipItem(i, start=start_time, end=end_time,text=f"frame: {str(i)}"))
 		i += 1
-	subs2.save('transition guides.srt', encoding='utf-8')
-	print(f"{Fore.GREEN}*transition guides.srt generated{Style.RESET_ALL}")
+	subs2.save(f'{frame_extension_length}-frame_transition_margin.srt', encoding='utf-8')
+	print(f"{Fore.GREEN}*{frame_extension_length}-frame_transition_margin.srt generated in {os.getcwd()}{Style.RESET_ALL}")
 
 def text_edit(buffer_name, buffer_contents, mode):
 	# create a new buffer file
@@ -192,6 +195,13 @@ def text_edit(buffer_name, buffer_contents, mode):
 	words_to_remove = modified_list[modified_list.index(BUFFER_MSG_REMOVE_TXT)+1:]
 	return(script, words_to_remove)
 
+def is_convertible_to_int(value):
+	try:
+		int(value)
+		return True
+	except ValueError:
+		return False
+
 def shell():
 	
 	print(TITLE_MSG)
@@ -209,7 +219,13 @@ def shell():
 			tokens = nltk.word_tokenize(user_input)
 			if tokens[0] == "exit": exit()
 			elif tokens[0] == "help": print(HELP_MSG)
-			elif tokens[0] == "srt": generate_srt_guide(300, 12)
+			elif tokens[0] == "srt": 
+				if(len(tokens) > 1):
+					if(not is_convertible_to_int(tokens[1])):
+						print_error("Invalid frame length")
+					generate_srt_guide(300, 12, tokens[1])
+				else:
+					generate_srt_guide(300, 12, FRAME_EXTEND_LENGTH)
 			elif tokens[0] == "extend":
 				filename = select_file([("acceptable files", "*.srt;*.csv;*.xstage;*.txt")], "select file")
 				if len(filename) < 0:
@@ -244,8 +260,8 @@ def shell():
 					continue
 				basename = os.path.basename(selected_file).split('.')[0]
 				filepath = f"{os.path.dirname(selected_file)}/{basename} CN.srt"
-				print(filepath)
-				csv2srt(selected_file, filepath)
+				print(f"{Fore.GREEN}saved to {filepath}{Fore.RESET}")
+				csv2srt(selected_file, os.path.dirname(filepath))
 			elif tokens[0] == 'translate':
 				flag = "default"
 
@@ -281,7 +297,21 @@ def shell():
 					# process input
 					if len(txt_rows) != len(csv_rows):
 						print_warning("The input you provided does not contain the same amount of lines as the provided srt file\n")
-						print(f"{len(txt_rows)}/{len(csv_rows)}")
+						print(f"{len(txt_rows)}/{len(csv_rows)} lines")
+
+						
+						if(len(txt_rows) > len(csv_rows)):
+							print("provided translation is LONGER than expected")
+							print(Fore.RED)
+							for index, row in enumerate(txt_rows[len(csv_rows):]):
+								print(f"<{index + len(csv_rows)}> {row}")
+							print(Fore.RESET)
+							print()
+							for index, row in enumerate(txt_rows):
+								print(f"<{index}> {Fore.RED}{row[:-1]}{Fore.RESET}, {csv_rows[index][2] if index < len(csv_rows) else ''}")
+						else:
+							print("provided translation is SHORTER than expected")
+
 						user_input = input("r-redo, e-edit, c-cancel: ")
 						if (user_input == 'r'):
 							flag = "default"
@@ -302,7 +332,7 @@ def shell():
 					txt_rows[row_num] = txt_rows[row_num][:-1]
 					if '\n' in txt_rows[row_num]:
 						seperated_input_rows = txt_rows[row_num].split('\n')
-						seperated_csv_rows = [row[0] for row in csv_rows][row_num].split('\n')
+						seperated_csv_rows = [row[2] for row in csv_rows][row_num].split('\n')
 						for item in range(0, len(seperated_input_rows)):
 							print(f"{str(row_num) + '.' if item == 0 else ''} {seperated_input_rows[item]} {seperated_csv_rows[item]}")
 					else:
@@ -316,13 +346,14 @@ def shell():
 				print(f"{Fore.GREEN}File saved: {csv_filename}{Style.RESET_ALL}")
 
 				# write changes
+				for row in csv_rows:
+					pass
 				with open(csv_filename, 'w', newline='', encoding='utf-8') as file:
 					writer = csv.writer(file)
-					writer.writerow(["text", "start", "end", "translated version"])
+					writer.writerow(["start", "end", "original", "translated version"])
 					for row in csv_rows:
 						writer.writerow(row)
 
-				csv2srt(csv_filename, directory)
 				subprocess.Popen('explorer {}'.format(os.path.dirname(selected_file).replace('/', '\\')))
 			else:
 				print_error(f"{tokens[0]}: command not found")
@@ -332,5 +363,6 @@ def shell():
 if __name__ == "__main__":
 	init()
 	shell()
-
-# pyinstaller --onefile .\frame_extension.pyom
+	#
+ 
+# pyinstaller --onefile .\frame_extension.py

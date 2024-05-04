@@ -1,0 +1,717 @@
+1
+01:00:01,875 --> 01:00:04,541
+y hemos llegado a [playtime co]!
+
+2
+01:00:04,541 --> 01:00:07,208
+dado que [papyrus] regresa de sus vacaciones pronto,
+
+3
+01:00:07,208 --> 01:00:09,875
+creo que sería bonito darle un pequeño regalo.
+
+4
+01:00:09,875 --> 01:00:12,541
+y para esta ocasión especial...
+
+5
+01:00:12,541 --> 01:00:15,208
+¡He traído a [Alphys]!
+
+6
+01:00:15,208 --> 01:00:17,875
+¿Por qué estoy aquí?
+
+7
+01:00:17,875 --> 01:00:20,541
+Tú estás a cargo de ayudarme a encontrar el regalo perfecto para mi hermano.
+
+8
+01:00:20,541 --> 01:00:23,208
+después de todo, ¡eres una experta en coleccionar figuras!
+
+9
+01:00:23,208 --> 01:00:25,875
+Quiero decir... sí, pero...
+
+10
+01:00:25,875 --> 01:00:28,541
+¿Por qué estamos en una fábrica de juguetes abandonada??
+
+11
+01:00:28,541 --> 01:00:30,541
+¡Porque...!
+
+12
+01:00:30,541 --> 01:00:34,041
+contratar a [Cyber] para hacerse cargo de un puesto de perritos calientes realmente afectó mis fondos
+
+13
+01:00:34,041 --> 01:00:37,166
+bueno, echemos un vistazo por aquí y busquemos un regalo.
+
+14
+01:00:37,166 --> 01:00:39,166
+¿Qué tal esto?
+
+15
+01:00:39,333 --> 01:00:41,333
+No.
+
+16
+01:00:41,333 --> 01:00:43,833
+¿Y este?
+
+17
+01:00:43,916 --> 01:00:46,458
+No.
+
+18
+01:00:46,541 --> 01:00:47,666
+¿Este?
+
+19
+01:00:47,708 --> 01:00:50,250
+¡No!
+
+20
+01:00:56,750 --> 01:00:59,416
+He buscado en la mayoría de los lugares.
+
+21
+01:00:59,416 --> 01:01:02,083
+No parece que este lugar tenga mucho que ofrecer.
+
+22
+01:01:02,083 --> 01:01:04,750
+sí... tal vez deberíamos volver a casa-
+
+23
+01:01:06,666 --> 01:01:09,333
+¡espera un minuto!
+
+24
+01:01:09,333 --> 01:01:12,000
+¿Qué es esta cosa?
+
+25
+01:01:13,291 --> 01:01:15,166
+Intrigante...
+
+26
+01:01:15,166 --> 01:01:19,041
+parece ser un dispositivo similar a una mochila con manos mecánicas?
+
+27
+01:01:24,666 --> 01:01:27,333
+jeje, ¡eso es bastante genial!
+
+28
+01:01:37,208 --> 01:01:38,708
+jeje, esto es bastante divertido.
+
+29
+01:01:38,708 --> 01:01:41,375
+[Sans,] tal vez deberías tener cuidado con eso-
+
+30
+01:01:57,041 --> 01:01:59,625
+¡AH!!!!!
+
+31
+01:02:09,208 --> 01:02:11,208
+uff, eso estuvo bastante cerca-
+
+32
+01:02:19,375 --> 01:02:22,041
+uf...
+
+33
+01:02:25,708 --> 01:02:28,208
+¡[SANS]! ¡DESPIERTA!
+
+34
+01:02:28,208 --> 01:02:30,166
+¿Por qué vinimos aquí!?
+
+35
+01:02:30,166 --> 01:02:32,833
+No hay forma de salir
+
+36
+01:02:32,833 --> 01:02:35,125
+sí, caímos bastante profundo...
+
+37
+01:02:35,125 --> 01:02:37,375
+A MENOS QUE.
+
+38
+01:02:37,375 --> 01:02:38,958
+TENGO UNA SOLUCIÓN.
+
+39
+01:02:40,958 --> 01:02:43,583
+no puedo alcanzar la superficie, está demasiado lejos
+
+40
+01:02:43,583 --> 01:02:45,333
+¡WAAA!
+
+41
+01:02:46,416 --> 01:02:48,958
+bueno, no hay otra opción que seguir adelante.
+
+42
+01:02:49,041 --> 01:02:51,583
+¿eh?
+
+43
+01:02:54,333 --> 01:02:55,583
+oye, estamos buscando una forma de volver arriba,
+
+44
+01:02:55,583 --> 01:02:59,250
+¿sabes si hay un ascensor aquí o algo así?
+
+45
+01:03:01,666 --> 01:03:04,333
+oh eso no es bueno.
+
+46
+01:03:04,333 --> 01:03:07,000
+[Alphys], eh...
+
+47
+01:03:07,000 --> 01:03:09,666
+prepárate para correr.
+
+48
+01:03:09,666 --> 01:03:12,333
+¿[Alphys]?
+
+49
+01:03:12,333 --> 01:03:15,000
+Es...
+
+50
+01:03:15,000 --> 01:03:17,666
+Es bastante lindo en realidad
+
+51
+01:03:17,666 --> 01:03:19,208
+¿eh???
+
+52
+01:03:19,208 --> 01:03:21,208
+¿encuentras linda esta cosa?
+
+53
+01:03:21,208 --> 01:03:23,833
+Oh...
+
+54
+01:03:24,041 --> 01:03:24,958
+¿Quién es un buen gatito?
+
+55
+01:03:25,041 --> 01:03:26,583
+Detente.
+
+56
+01:03:26,666 --> 01:03:27,708
+¡¡Ahh!!
+
+57
+01:03:27,750 --> 01:03:30,250
+¡HABLA!! ¡ESO NO ES NORMAL!!
+
+58
+01:03:30,291 --> 01:03:33,791
+Soy un gato de peluche viviente, ¿te parezco normal-?
+
+59
+01:03:33,791 --> 01:03:36,458
+Uh, lo que sea.
+
+60
+01:03:36,458 --> 01:03:38,125
+Como con todos los recién llegados.
+
+61
+01:03:38,125 --> 01:03:40,041
+Estoy aquí para difundir la buena palabra de...
+
+62
+01:03:40,041 --> 01:03:41,416
+El uno,
+
+63
+01:03:41,416 --> 01:03:43,041
+El único...
+
+64
+01:03:43,041 --> 01:03:45,708
+[PROTOTYPE]!
+
+65
+01:03:47,791 --> 01:03:49,416
+¿quién?
+
+66
+01:03:50,208 --> 01:03:52,875
+¡El [Prototype]!
+
+67
+01:03:52,875 --> 01:03:54,500
+¡Aquí! ¡Esta es una foto de cómo se ve!
+
+68
+01:03:56,333 --> 01:03:57,666
+Wow, qué especimen tan intrigante.
+
+69
+01:03:57,666 --> 01:03:59,500
+Parece estar creado a partir de una mezcla de partes orgánicas y mecánicas-
+
+70
+01:03:59,500 --> 01:04:01,375
+creo que ni siquiera hace ejercicio
+
+71
+01:04:01,375 --> 01:04:03,416
+se ve más delgado que yo
+
+72
+01:04:03,416 --> 01:04:06,083
+¡¿QUÉ DIJISTE!?
+
+73
+01:04:06,083 --> 01:04:08,750
+¿TE ATREVES A INSULTAR-
+
+74
+01:04:08,750 --> 01:04:10,041
+al único
+
+75
+01:04:10,041 --> 01:04:11,666
+¡al único
+
+76
+01:04:11,708 --> 01:04:15,166
+[PROTOTYPE]!?!?
+
+77
+01:04:15,166 --> 01:04:18,541
+Ustedes, necios, cometieron un grave error al venir aquí abajo.
+
+78
+01:04:18,541 --> 01:04:20,250
+sí, ¿cómo salimos?
+
+79
+01:04:20,250 --> 01:04:22,916
+Si no se van en este instante, me veré obligado a recurrir a medidas más...
+
+80
+01:04:22,916 --> 01:04:25,583
+Drásticas.
+
+81
+01:04:25,583 --> 01:04:27,708
+Estoy...
+
+82
+01:04:27,708 --> 01:04:30,333
+...preguntando cómo salir.
+
+83
+01:04:31,666 --> 01:04:34,333
+¿Todavía aquí?
+
+84
+01:04:34,333 --> 01:04:37,000
+Jajaja...
+
+85
+01:04:37,000 --> 01:04:40,541
+Bueno... no les gustará lo que viene a continuación.
+
+86
+01:04:41,833 --> 01:04:44,500
+¿este tipo nos puede oír?
+
+87
+01:04:44,500 --> 01:04:47,166
+Creo que está atrapado en un monólogo
+
+88
+01:04:47,166 --> 01:04:49,833
+Ya ves...
+
+89
+01:04:49,833 --> 01:04:52,500
+Tengo la capacidad de liberar un gas poderoso y especial,
+
+90
+01:04:52,541 --> 01:04:55,208
+¡que te hará dormir instantáneamente!
+
+91
+01:04:55,208 --> 01:04:56,916
+¡No!
+
+92
+01:04:56,916 --> 01:04:58,625
+¡VAMOS!
+
+93
+01:04:58,625 --> 01:05:01,291
+¡Sí! ¡exactamente!
+
+94
+01:05:01,291 --> 01:05:03,958
+espera, ¿qué?
+
+95
+01:05:03,958 --> 01:05:06,000
+¡adelante!
+
+96
+01:05:06,000 --> 01:05:08,000
+¡dámelo!
+
+97
+01:05:08,000 --> 01:05:10,666
+¡Tonto! ¡Toma esto!
+
+98
+01:05:12,625 --> 01:05:15,291
+¡[Sans]! ¡Rápido! ¿Qué hacemos??
+
+99
+01:05:15,291 --> 01:05:17,416
+No tengo ningún dispositivo o algo para evitar que el gas de-
+
+100
+01:05:20,208 --> 01:05:22,666
+¡y ambos están dormidos!
+
+101
+01:05:22,666 --> 01:05:25,250
+echemos un vistazo a sus peores pesadillas, ¿de acuerdo?
+
+102
+01:05:36,666 --> 01:05:39,333
+uf...
+
+103
+01:05:39,333 --> 01:05:41,958
+Oh no...
+
+104
+01:05:41,958 --> 01:05:44,625
+oh no no no
+
+105
+01:05:44,625 --> 01:05:47,291
+¡Los pacientes!
+
+106
+01:05:50,666 --> 01:05:52,833
+Se están derritiendo!
+
+107
+01:06:01,250 --> 01:06:03,875
+No...
+
+108
+01:06:03,875 --> 01:06:06,625
+¡NO!!!
+
+109
+01:06:08,541 --> 01:06:11,208
+Ah, qué hermosa
+pesadilla. . .
+
+110
+01:06:11,208 --> 01:06:13,875
+Realmente me hace llorar.
+
+111
+01:06:13,875 --> 01:06:16,541
+¡Echemos un vistazo a lo que el esqueleto está soñando!
+
+112
+01:06:25,625 --> 01:06:27,375
+¡SANS! ¡DESPIERTA!
+
+113
+01:06:27,375 --> 01:06:30,041
+¡NOS HEMOS QUEDADO SIN DINERO!!
+
+114
+01:06:33,916 --> 01:06:37,208
+¡SÓLO TENEMOS FONDOS SUFICIENTES PARA 3 COMIDAS MÁS EN [GRILLBY'S]!!
+
+115
+01:06:37,208 --> 01:06:39,875
+no te preocupes [Cyber.]
+
+116
+01:06:39,875 --> 01:06:42,541
+es por razones como estas por las que guardo repuestos en la nevera.
+
+117
+01:06:42,541 --> 01:06:45,583
+Sabía que estas botellas de edición limitada serían útiles-
+
+118
+01:06:48,541 --> 01:06:51,208
+¿Sin ketchup?
+
+119
+01:06:51,208 --> 01:06:54,375
+¡¡¡NO!!!
+
+120
+01:06:54,375 --> 01:06:56,958
+¿Eh??
+
+121
+01:06:56,958 --> 01:06:58,833
+¿QUÉ ES ESTO??
+
+122
+01:06:59,541 --> 01:07:00,625
+¡Oye, tú!
+
+123
+01:07:00,625 --> 01:07:02,333
+¡Despierta!
+
+124
+01:07:02,333 --> 01:07:05,000
+¿qué?
+
+125
+01:07:05,000 --> 01:07:07,666
+¿eh?
+
+126
+01:07:07,666 --> 01:07:08,625
+oh, uff.
+
+127
+01:07:08,625 --> 01:07:11,125
+Acabo de tener la peor pesadilla...
+
+128
+01:07:11,125 --> 01:07:13,791
+¡Sí! ¡Lo sé!
+
+129
+01:07:13,791 --> 01:07:16,458
+¡¿Qué tipo de pesadilla es esa!?
+
+130
+01:07:16,458 --> 01:07:19,125
+¿tu mayor miedo es...
+
+131
+01:07:19,125 --> 01:07:21,791
+quedarte sin ketchup?
+
+132
+01:07:21,791 --> 01:07:23,500
+¡Eso es ridículo!
+
+133
+01:07:23,500 --> 01:07:24,958
+por supuesto que no.
+
+134
+01:07:26,083 --> 01:07:28,750
+mi mayor miedo es quedarme sin ketchup de edición limitada.
+
+135
+01:07:30,583 --> 01:07:33,250
+¡ESO ES!
+
+136
+01:07:33,250 --> 01:07:35,916
+¡Basta de estos juegos tontos!
+
+137
+01:07:35,916 --> 01:07:38,583
+Osaste insultar al todopoderoso [Prototype...]
+
+138
+01:07:38,666 --> 01:07:40,416
+¡Entonces enfrentaréis su juicio!
+
+139
+01:07:47,083 --> 01:07:49,166
+En otro lugar...
+
+140
+01:07:50,083 --> 01:07:51,916
+Ah, paz y tranquilidad. . .
+
+141
+01:07:51,916 --> 01:07:54,583
+Tal vez finalmente tenga algo de tiempo para mi pasatiempo favorito. . .
+
+142
+01:07:54,583 --> 01:07:57,250
+¡tejer!
+
+143
+01:07:57,250 --> 01:07:59,916
+¡SALUDOS MI SEÑOR!!
+
+144
+01:07:59,916 --> 01:08:02,583
+(no este tipo otra vez)
+
+145
+01:08:02,583 --> 01:08:05,250
+¡MI SEÑOR! ¡ESTOS DOS RECIÉN LLEGADOS TE INSULTARON!!
+
+146
+01:08:05,250 --> 01:08:07,916
+¡ESE DEBERÍA SER UN CRIMEN DIGNO DE MUERTE!!
+
+147
+01:08:07,916 --> 01:08:10,583
+también ¿podría tener tu autógrafo de nuevo por favor?
+
+148
+01:08:10,583 --> 01:08:13,250
+¿¡PODRÍAS DEJAR DE MOLESTARME!?
+
+149
+01:08:13,250 --> 01:08:15,916
+¡¡YA ME HAS PEDIDO MI FIRMA 20 VECES!!
+
+150
+01:08:15,916 --> 01:08:20,250
+¡No sé, solo mátalos o algo así!
+
+151
+01:08:20,250 --> 01:08:22,000
+¡Enseguida, mi señor!
+
+152
+01:08:22,041 --> 01:08:24,708
+Habéis hecho algo imperdonable.
+
+153
+01:08:24,708 --> 01:08:27,125
+Preparaos. . . para encontrar vuestra perdición!
+
+154
+01:08:27,666 --> 01:08:30,333
+espera, ¿qué es eso allí?
+
+155
+01:08:33,125 --> 01:08:34,958
+¿eh?
+
+156
+01:08:34,958 --> 01:08:37,625
+¿Quieres decir el peluche que tejí?
+
+157
+01:08:37,625 --> 01:08:39,416
+sí, ¡eso se ve genial!
+
+158
+01:08:39,416 --> 01:08:42,083
+ese sería el regalo perfecto para mi hermano.
+
+159
+01:08:42,083 --> 01:08:44,750
+¿cuál fue tu inspiración para eso?
+
+160
+01:08:44,750 --> 01:08:46,583
+¡wow!
+
+161
+01:08:46,583 --> 01:08:49,250
+¿en serio?
+
+162
+01:08:49,250 --> 01:08:53,041
+Ese diseño se basó en uno de los trabajadores aquí.
+
+163
+01:08:53,041 --> 01:08:55,708
+¡Nunca pensé que alguien quisiera mis juguetes tejidos!
+
+164
+01:08:55,708 --> 01:08:58,375
+De hecho, ¡puedo mostrarte más de mis creaciones!
+
+165
+01:09:02,458 --> 01:09:05,125
+este se basa en [Huggy Wuggy]
+
+166
+01:09:05,125 --> 01:09:07,500
+este se basa en [Boxy Boo],
+
+167
+01:09:07,500 --> 01:09:10,166
+este es el mejor
+
+168
+01:09:10,166 --> 01:09:14,041
+Estoy tan contenta de poder compartir mi pasión por este arte con alguien que lo entiende.
+
+169
+01:09:14,041 --> 01:09:16,708
+jeje, bueno, me encantaría tener ese de esqueleto.
+
+170
+01:09:16,708 --> 01:09:19,375
+Estoy seguro de que a mi hermano realmente le gustaría.
+
+171
+01:09:19,375 --> 01:09:22,041
+¡Por supuesto!
+
+172
+01:09:22,041 --> 01:09:24,708
+¿Sabes qué? Dado que fuiste tan amable,
+
+173
+01:09:24,708 --> 01:09:27,083
+¡estaré más que feliz de darte todos los que tengo!
+
+174
+01:09:29,750 --> 01:09:32,208
+* ¡nos vemos, y gracias por los peluches!
+
+175
+01:09:32,458 --> 01:09:35,041
+¡Vuelve pronto!
+
+176
+01:09:35,041 --> 01:09:37,708
+ah, fue un viaje maravilloso.
+
+177
+01:09:37,708 --> 01:09:40,958
+y eso, [Alphys], es por qué siempre deberías ir a una fábrica de juguetes abandonada
+
+178
+01:09:40,958 --> 01:09:44,083
+NUNCA ME LLEVES A NINGÚN LUGAR OTRA VEZ
+
+179
+01:09:44,125 --> 01:09:44,916
+¡¡¡AH!!!
+

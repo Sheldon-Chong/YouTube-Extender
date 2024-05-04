@@ -1,68 +1,22 @@
-import curses
+import tkinter as tk
+from tkinter import ttk
 
-# define the menu function
-def menu(title, classes, color='white'):
-  # define the curses wrapper
-  def character(stdscr,):
-    attributes = {}
-    # stuff i copied from the internet that i'll put in the right format later
-    icol = {
-      1:'red',
-      2:'green',
-      3:'yellow',
-      4:'blue',
-      5:'magenta',
-      6:'cyan',
-      7:'white'
-    }
-    # put the stuff in the right format
-    col = {v: k for k, v in icol.items()}
+class EditableTreeview(ttk.Treeview):
+    def __init__(self, master, **kwargs):
+        super().__init__(master, **kwargs)
+        self.bind("<Double-1>", self.on_double_click)
 
-    # declare the background color
+    def on_double_click(self, event):
+        item = self.identify("item", event.x, event.y)
+        column = self.identify("column", event.x, event.y)
+        # Get the cell value and display an Entry widget for editing
+        # (You'll need to implement this part)
 
-    bc = curses.COLOR_BLACK
+root = tk.Tk()
+tree = EditableTreeview(root)
+tree.pack()
 
-    # make the 'normal' format
-    curses.init_pair(1, 7, bc)
-    attributes['normal'] = curses.color_pair(1)
+# Add columns and rows to the treeview
+# (You'll need to populate your data here)
 
-
-    # make the 'highlighted' format
-    curses.init_pair(2, col[color], bc)
-    attributes['highlighted'] = curses.color_pair(2)
-
-
-    # handle the menu
-    c = 0
-    option = 0
-    while c != 10:
-
-        stdscr.erase() # clear the screen (you can erase this if you want)
-
-        # add the title
-        stdscr.addstr(f"{title}\n", curses.color_pair(1))
-
-        # add the options
-        for i in range(len(classes)):
-            # handle the colors
-            if i == option:
-                attr = attributes['highlighted']
-            else:
-                attr = attributes['normal']
-            
-            # actually add the options
-
-            stdscr.addstr(f'> ', attr)
-            stdscr.addstr(f'{classes[i]}' + '\n', attr)
-        c = stdscr.getch()
-
-        # handle the arrow keys
-        if c == curses.KEY_UP and option > 0:
-            option -= 1
-        elif c == curses.KEY_DOWN and option < len(classes) - 1:
-            option += 1
-    return option
-  return curses.wrapper(character)
-
-print(f"output:", menu('TEST', ['this will return 0','this will return 1', 'this is just to show that you can do more options then just two'], 'blue'))
-
+root.mainloop()

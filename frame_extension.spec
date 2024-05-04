@@ -1,5 +1,6 @@
 # -*- mode: python ; coding: utf-8 -*-
 
+import sys ; sys.setrecursionlimit(sys.getrecursionlimit() * 5)
 
 a = Analysis(
     ['frame_extension.py'],
@@ -12,6 +13,7 @@ a = Analysis(
     runtime_hooks=[],
     excludes=[],
     noarchive=False,
+    optimize=0,
 )
 pyz = PYZ(a.pure)
 
@@ -21,7 +23,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name='frame_extension',
+    name='youtube tools',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
@@ -34,4 +36,5 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
+    
 )

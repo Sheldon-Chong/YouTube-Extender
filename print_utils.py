@@ -14,25 +14,34 @@ BUFFER_MSG = f"""{BUFFER_MSG_INSERT_TXT}
 {BUFFER_MSG_SAVE_NAME}
 """
 
+LANGUAGE_TRANSLATE_TO = "chinese"
+LANGUAGES = {
+	"english": "en",
+	"chinese": "zh",
+	"spanish": "es",
+}
+
+WORDS_TO_REMOVE = ["<b>", "</b>"]
+
 YES = ['yes', "Yes", "YES", "y", "Y"]
-FRAME_EXTEND_LENGTH = 34
+FRAME_EXTEND_LENGTH = 32
 
 PROMPT_MSG = """
 These are the instructions for this prompt.
-1. Translate all the words below into chinese.
+1. Translate all the words below into {}.
 2. do not translate words inside the brackets: [] as the words inside the brackets are names.
-3. Do not translate any existing chinese words. 
-each of the numbers in brackets behind the words are a line. For example: "(10) woah! I can dash so quickly!" this is a number in a bracket. So all these numbers, e.g (10), (11), (50), (100), etc are lines. Make sure your final output with the words translated to chinese contains the same amount of lines and numbers as the words original in english. 
+3. Do not translate any existing {} words. 
+each of the numbers in brackets behind the words are a line. For example: "(10) woah! I can dash so quickly!" this is a number in a bracket. So all these numbers, e.g (10), (11), (50), (100), etc are lines. Make sure your final output with the words translated to {} contains the same amount of lines and numbers as the words original in english. 
 
 translate here:
 
 """
 HELP_MSG = """
-help: show commands
-exit: exit program
-extend <xstage filename>: extend the file
-srt <xstage filename>: generate srt based on file
-translate: convert a srt file into csv, then paste the translated csv to form a new srt file
+help:		show available commands
+exit:		exit terminal
+extend <frames>: select a file to extend based on the default, or given number of frames
+translate:	initiate part 1 of the translation process. Returns a csv file
+csv2srt:	initiates part 2 of the translation process
 """
 TITLE_MSG = f"""
 {Fore.GREEN}
@@ -50,12 +59,9 @@ TITLE_MSG = f"""
  | |_) | |_| |_   ____) | | | |  __/ | (_| | (_) | | | |
  |_.__/ \__, (_) |_____/|_| |_|\___|_|\__,_|\___/|_| |_|
          __/ |                                          
-         |___/                                           
+        |___/                                           
 ================================================================================================================
-help: show commands
-exit: exit program
-extend <xstage filename>: extend the file
-srt <xstage filename>: generate srt based on file
+{HELP_MSG}
 ================================================================================================================
 
 """
